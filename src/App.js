@@ -8,7 +8,6 @@ import Add from './components/Add';
 // Creating the main App component
 function App() {
   // setting up some hooks
-  // const [newItem, setNewItem] = useState('');
   const [editedItem, setEditedItem] = useState('');
   const [editedItemId, setEditedItemId] = useState('');
   const [editButton, setEditButton] = useState(false);
