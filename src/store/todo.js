@@ -28,7 +28,7 @@ export const todoSlice = createSlice({
         },
 
         deleteTodo: (state, action) => {
-            delete state.data[action.payload]
+            delete state.data[action.payload] //delete specified item
         },
 
         editTodo: (state, action) => {

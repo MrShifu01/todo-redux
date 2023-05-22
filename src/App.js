@@ -1,9 +1,12 @@
+// Import important components and hooks
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, deleteTodo, editTodo, completedTodo } from './store/todo';
 import { useState } from 'react';
 
+// Creating the main App component
 function App() {
+  // setting up some hooks
   const [newItem, setNewItem] = useState('');
   const [editedItem, setEditedItem] = useState('');
   const [editedItemId, setEditedItemId] = useState('');
