@@ -53,51 +53,84 @@ function App() {
   };
 
   return (
-    <>
+    <div className='total-container'>
+      <h1>things to do.</h1>
       {/* Printing the List */}
-      <div>
+      <div className='todo-container'>
+        
         {Object.keys(todo).map((id) => {
           const item = todo[id];
           const isCompleted = item.completed;
 
           return (
-            <div className={isCompleted ? 'list-item-completed' : 'list-item'} key={id}>
-              {item.content}
-              {/* Delete Button */}
-              <button value={id} className='delete-button' type='button' onClick={(e) => handleDelete(e, id)}>
-                X
-              </button>
+            
+            // List Items
+            <div className='todo-item-container ' key={id}>
 
-              {/* Edit button to toggle the edit form */}
-              <button type='button' onClick={(e) => handleEditButton(e, id)}>
-              {editButton && editedItemId === id ? "Don't Edit" : 'Edit'}
-              </button>
+                <div className='input-toggle'>
+                  <div className='left-todo'>
+                      {/* Completed Button */}
+                      <button 
+                      className={`complete-button ${isCompleted ? 'completed-fill' : ""}`}
+                      onClick={(e) => handleCompleted(e, id)}>{isCompleted ? <i class='bx bx-check'></i> : ''}
+                      </button>
+                      <div className={`todo-item-container ${isCompleted ? 'list-item-completed' : 'list-item'}`}>
+                        {/* List Content */}
+                        {item.content}
+                      </div>
 
-              {/* Edit an Item Section */}
-              <form className={editButton && editedItemId === id ? 'show-edit' : 'hide-edit'}>
-                <label>
-                  <input
-                    type='text'
-                    className='edit-input'
-                    name='value'
-                    onChange={(e) => setEditedItem(e.target.value)}
-                    value={editedItem}
-                  />
-                </label>
-                <button className='edit-button' value={id} type='submit' onClick={(e) => handleEdit(e, id, isCompleted)}>
-                  Confirm Edit
-                </button>
-              </form>
+                  </div>
+                      {/* Edit an Item Section */}
+                  <form 
+                      className={`edit-form ${editButton && editedItemId === id ? 'show-edit' : 'hide-edit'}`}>
+                          <label>
+                            <input
+                              type='text'
+                              className='edit-input'
+                              name='value'
+                              onChange={(e) => setEditedItem(e.target.value)}
+                              value={editedItem}
+                            />
+                          </label>
+                          <button 
+                          className='edit-button' 
+                          value={id} type='submit' 
+                          onClick={(e) => handleEdit(e, id, isCompleted)}>
+                            Edit
+                          </button>
+                  </form>
+                </div>
+                <div className='right-todo'>
+                    {/* Delete Button */}
+                    <button 
+                    value={id} 
+                    className='delete-button' 
+                    type='button' 
+                    onClick={(e) => handleDelete(e, id)}>
+                      X
+                    </button>
 
-              {/* Completed Button */}
-              <button onClick={(e) => handleCompleted(e, id)}>{isCompleted ? 'un-Complete' : 'Mark Completed'}</button>
+
+
+                    {/* Edit button to toggle the edit form */}
+                    <button 
+                    className='edit-button'
+                    type='button' 
+                    onClick={(e) => handleEditButton(e, id)}>
+                    {editButton && editedItemId === id ? "Cancel" : 'Edit'}
+                    </button>
+                </div>
+
+
+
+              
             </div>
           );
         })}
       </div>
 
       {/* Adding new items */}
-      <form>
+      <form className='add-container'>
         <label>
           <input
             className='add-todo'
@@ -105,13 +138,15 @@ function App() {
             type='text'
             onChange={(e) => setNewItem(e.target.value)}
             value={newItem}
+            placeholder='e.g Learn Next.js...'
           />
         </label>
         <button className='add-button' type='submit' onClick={handleAdd}>
-          Add Todo
+          +
         </button>
       </form>
-    </>
+    
+    </div>
   );
 }
 

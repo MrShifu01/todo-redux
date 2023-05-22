@@ -1,3 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Six+Caps&display=swap');
+
+*::before,
+*::after,
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color: #181818;
+    --container-color: #363636;
+    --accent-color:#CAFF42;
+    --font: "Six Caps"
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font);
+    margin: 0;
+}
+
+h1 {
+    color: #EBF7F8;
+    font-family: "Righteous";
+}
+
+.total-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.todo-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--container-color);
+    border-radius: 10px;
+}
+
+.add-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.todo-item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1rem;
+    color: var(--accent-color);
+}
+
+.left-todo,
+.right-todo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 3rem;
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 0;
+    padding-top: .1rem;
+    margin: 0;
+    border: none;
+    font-size: 1rem;
+    color: var(--accent-color);
+    background-color: var(--container-color);
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    padding-top: 0;
+    font-size: 1.1rem;
+}
+
+.complete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--container-color);
+    border: 1px solid var(--accent-color);
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.complete-button:hover {
+    border: 2px solid var(--accent-color);
+}
+
+.edit-button {
+    font-size: .7rem;
+    color: white;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 20px;
+    padding: .3rem 1rem;
+    cursor: pointer;
+}
+
+.edit-input {
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-right: .25rem;
+    padding: .5rem;
+}
+
+.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    font-size: xx-large;
+}
+
+.add-button:hover {
+    background-color: var(--container-color);
+    color: var(--accent-color);
+}
+
+.edit-form {
+    margin: 0;
+    padding: 0;
+    padding-bottom: .5rem;
+    padding-left: 2rem;
+}
+
+.add-todo {
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    padding: .5rem;
+}
+
+/* CONDITIONAL SETTINGS */
 .show-edit {
     display: block
 }
@@ -8,4 +164,13 @@
 
 .list-item-completed {
     text-decoration: line-through;
+}
+
+.completed-fill {
+    background-color: var(--accent-color);
+}
+
+.input-toggle {
+    display: flex;
+    flex-direction: column;
 }
