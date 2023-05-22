@@ -16,16 +16,6 @@ function App() {
   const todo = useSelector((state) => state.todo.data);
   const dispatch = useDispatch();
 
-  // handle the adding of a new item
-  // const handleAdd = (e) => {
-  //   e.preventDefault();
-  //   if (newItem === '') {
-  //     return;
-  //   }
-  //   dispatch(addTodo(String(newItem)));
-  //   setNewItem('');
-  // };
-
   // handle deleting an item
   const handleDelete = (e, id) => {
     e.preventDefault();

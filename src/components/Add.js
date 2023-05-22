@@ -1,12 +1,15 @@
+// import necessary modules
 import '../App.css'
 import { addTodo} from '../store/todo';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 function Add() {
+    // set up useState
     const [newItem, setNewItem] = useState('');
     const dispatch = useDispatch();
 
+    // handl the add function
     const handleAdd = (e) => {
         e.preventDefault();
         if (newItem === '') {
@@ -18,6 +21,7 @@ function Add() {
 
     return (
     <>
+        {/* form to add a new list item */}
         <form className='add-container'>
             <label>
                 <input
