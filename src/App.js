@@ -1,13 +1,14 @@
 // Import important components and hooks
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, deleteTodo, editTodo, completedTodo } from './store/todo';
+import { deleteTodo, editTodo, completedTodo } from './store/todo';
 import { useState } from 'react';
+import Add from './components/Add';
 
 // Creating the main App component
 function App() {
   // setting up some hooks
-  const [newItem, setNewItem] = useState('');
+  // const [newItem, setNewItem] = useState('');
   const [editedItem, setEditedItem] = useState('');
   const [editedItemId, setEditedItemId] = useState('');
   const [editButton, setEditButton] = useState(false);
@@ -16,14 +17,14 @@ function App() {
   const dispatch = useDispatch();
 
   // handle the adding of a new item
-  const handleAdd = (e) => {
-    e.preventDefault();
-    if (newItem === '') {
-      return;
-    }
-    dispatch(addTodo(String(newItem)));
-    setNewItem('');
-  };
+  // const handleAdd = (e) => {
+  //   e.preventDefault();
+  //   if (newItem === '') {
+  //     return;
+  //   }
+  //   dispatch(addTodo(String(newItem)));
+  //   setNewItem('');
+  // };
 
   // handle deleting an item
   const handleDelete = (e, id) => {
@@ -132,22 +133,7 @@ function App() {
         })}
       </div>
 
-      {/* Adding new items */}
-      <form className='add-container'>
-        <label>
-          <input
-            className='add-todo'
-            name='value'
-            type='text'
-            onChange={(e) => setNewItem(e.target.value)}
-            value={newItem}
-            placeholder='e.g Learn Next.js...'
-          />
-        </label>
-        <button className='add-button' type='submit' onClick={handleAdd}>
-          +
-        </button>
-      </form>
+      <Add/>
     
     </div>
   );
